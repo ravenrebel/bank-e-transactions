@@ -1,0 +1,21 @@
+﻿@model CardNumberTransferViewModel
+
+<partial name="_TransferPartial" />
+<div class="text-center">
+    <form method="post" asp-controller="Transactions" asp-action="CardNumberTransfer">
+        <div asp-validation-summary="ModelOnly"></div>
+        <div class="form-group row">
+            <label asp-for="CardNumber"></label><br />
+            <input class="form-control" asp-for="CardNumber" />
+            <span asp-validation-for="CardNumber"></span>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Count"></label><br />
+            <input class="form-control" asp-for="Count" />
+            <span asp-validation-for="Count"></span>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>

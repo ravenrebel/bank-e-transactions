@@ -1,0 +1,26 @@
+﻿@model ChangePinCodeViewModel
+@{
+    ViewData["Title"] = "Settings";
+}
+
+<h1>Change PIN</h1>
+<div class="text-center">
+    <div><p class="bg-warning">@ViewBag.IncorrectPinCode</p></div>
+    <form method="post" asp-controller="Settings" asp-action="ChangePinCode">
+        <div asp-validation-summary="ModelOnly"></div>
+        <div class="form-group row">
+            <label asp-for="PinCode"></label><br />
+            <input class="form-control" asp-for="PinCode" />
+            <span asp-validation-for="PinCode"></span>
+        </div>
+        <div class="form-group row">
+            <label asp-for="NewPinCode"></label><br />
+            <input class="form-control" asp-for="NewPinCode" />
+            <span asp-validation-for="NewPinCode"></span>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">Change</button>
+        </div>
+    </form>
+</div>
+

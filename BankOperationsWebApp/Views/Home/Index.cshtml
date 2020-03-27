@@ -1,0 +1,19 @@
+﻿@model CardDTO
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        @{ if (Model != null)
+            {
+                @:<p> <strong>Balance:</strong> @Model.Count</p>
+                @:<p><strong>Your card:</strong> @Model.CardNumber</p>
+            }
+            else
+            {
+                @:<p>No card</p>
+            }
+        }
+    </div>
