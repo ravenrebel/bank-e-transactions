@@ -6,7 +6,6 @@
 
     <ItemGroup>
       <PackageReference Include="AutoMapper" Version="9.0.0" />
-      <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />
       <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.0-preview.1.20124.5" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.0-preview.2.20120.8" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.0-preview.2.20120.8" />
