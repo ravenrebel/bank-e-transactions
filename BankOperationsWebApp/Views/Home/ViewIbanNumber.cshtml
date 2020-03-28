@@ -1,0 +1,19 @@
+﻿@model UserDTO
+
+@{
+    ViewData["Title"] = "Iban Number";
+}
+
+<div class="text-center">
+    <h1 class="display-4">IBAN</h1>
+    @{ if (Model != null)
+        {
+            @:<p><strong>Your IBAN:</strong> @Model.IbanNumber</p>
+        }
+        else
+        {
+            @:<p>No IBAN</p>
+        }
+    }
+</div>
+

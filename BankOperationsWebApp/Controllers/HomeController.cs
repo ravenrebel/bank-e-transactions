@@ -49,5 +49,17 @@ namespace BankOperationsWebApp.Controllers
             }
             else return View(null);
         }
+        public async Task<IActionResult> ViewIbanNumber()
+        {
+            User user = await _context.Users.FirstOrDefaultAsync(u => u.UserName.Equals(User.Identity.Name));
+            if (user != null)
+            {
+                var config = new MapperConfiguration(c => c.CreateMap<User, UserDTO>());
+                IMapper mapper = config.CreateMapper();
+                UserDTO userDTO = mapper.Map<User, UserDTO>(user);
+                return View(userDTO);
+            }
+            else return View(null);
+        }
     }
 }
