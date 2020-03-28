@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 
 namespace BankOperationsWebApp
 {
@@ -28,6 +29,15 @@ namespace BankOperationsWebApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            Action<BankOptions> bankOptions = (opt =>
+            {
+                opt.CountryCode = "UA";
+                opt.BankMfoNumber = "300251";
+                opt.BankName = "KisinBank";
+            });
+            services.Configure(bankOptions);
+            services.AddSingleton(resolver => resolver.GetRequiredService<IOptions<BankOptions>>().Value);
+
             services.AddControllersWithViews();
             services.AddRazorPages();
             
