@@ -14,12 +14,14 @@ namespace BankOperationsWebApp.Controllers
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
         private readonly ApplicationContext _context;
+        private readonly BankOptions _bank;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, ApplicationContext context)
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, ApplicationContext context, BankOptions bank)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _context = context;
+            _bank = bank;
         }
         
         [HttpGet]
@@ -33,7 +35,7 @@ namespace BankOperationsWebApp.Controllers
         {
             if(ModelState.IsValid)
             {
-                User user = new User { Email = model.Email, UserName = model.Email, PhoneNumber = model.PhoneNumber, };
+                User user = new User { Email = model.Email, UserName = model.Email, PhoneNumber = model.PhoneNumber, IbanNumber = _bank.GenerateIbanNumber(model.CardNumber)};
                 Random random = new Random();
                 Card card = new Card { Count = 5000, CardNumber = model.CardNumber, PinCode = random.Next(0, 9999).ToString().PadLeft(4, '0') }; 
                 user.Card = card;
