@@ -1,13 +1,13 @@
-﻿@model CardNumberTransferViewModel
+﻿@model IbanTransferViewModel
 
 <partial name="_TransferPartial" />
 <div class="text-center">
-    <form method="post" asp-controller="Transactions" asp-action="CardNumberTransfer">
+    <form method="post" asp-controller="Transactions" asp-action="IbanTransfer">
         <div asp-validation-summary="ModelOnly"></div>
         <div class="form-group row">
-            <label asp-for="CardNumber"></label><br />
-            <input class="form-control" asp-for="CardNumber" />
-            <span asp-validation-for="CardNumber"></span>
+            <label asp-for="IbanNumber"></label><br />
+            <input class="form-control" asp-for="IbanNumber" />
+            <span asp-validation-for="IbanNumber"></span>
         </div>
         <div class="form-group row">
             <label asp-for="Count"></label><br />
@@ -18,5 +18,4 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
     </form>
-    <a asp-controller="Transactions" asp-action="IbanTransfer">Use IBAN</a>
 </div>

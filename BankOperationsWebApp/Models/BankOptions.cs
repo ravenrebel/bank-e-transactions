@@ -15,8 +15,8 @@ namespace BankOperationsWebApp.Models
 
         public string GenerateIbanNumber(string cardNumber)
         {
-            long controlNumber = 98 - Convert.ToInt64(cardNumber) * 100 % 97;
-            return CountryCode + controlNumber + BankMfoNumber + cardNumber.PadLeft(19, '0');
+            long controlSum = 98 - Convert.ToInt64(cardNumber) * 100 % 97;
+            return CountryCode + controlSum + BankMfoNumber + cardNumber.PadLeft(19, '0');
         }
     }
 }
